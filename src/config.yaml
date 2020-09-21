@@ -1,21 +1,24 @@
-﻿# This plugin will get data files with a GET call and store them with a PUT call
-# Data files are files which end with "{fileName}.data.yaml" for plugins
+﻿#
+# This plugin will get data files with a GET call and store them with a PUT call
+# Data files include plugin files which end with "{fileName}.data.yaml" and the openmod.roles.yaml and the opemod.users.yaml files.
 #
-# If you need authentication you could adjust the template to something like this:
-#    urlTemplate: "https://myserver.com/get.php?file={componentId}.{fileName}?token=<yourtoken>"
+# To get started, upload the webdatastore.php inside the plugins "webfiles" directory to your web server and replace the ENTER_TOKEN_HERE inside it and below with some random password.
+# After that edit the urlTemplate below to make it point to your hosted file.
 #
 # If you are hosting your files directly as yaml without a php file you should use it like this
-#    urlTemplate: "https://myserver.com/{componentId}.{fileName}.yaml"
+#    urlTemplate: "https://example.com/somedirectory/{componentId}.{fileName}.yaml"
 #
 # Variables:
 #   {componentId}: the plugin or component which is reading or storing data (example values: OpenMod.Core, Kr4ken.NewEssentials)
 #   {fileName}: the file name, keep in mind that it is not unique and must be used with componentId when storing (example values: roles, users, etc.)
+#
 # An example sync file name would be {componentId}:{fileName} -> OpenMod.Core:users
+#
 
-urlTemplate: 'https://myserver.com/get.php?file={componentId}.{fileName}'
+urlTemplate: "https://example.com/webdatastore.php?file={componentId}.{fileName}?token=ENTER_TOKEN_HERE" # make sure token is same in webdatastore.php
 
-syncedFiles:
+syncedData:
 - name: "OpenMod.Core:roles" # sync roles
 - name: "OpenMod.Core:users" # sync user roles, data and permissions
 
-# If you don't know what componentId or fileName to use, check your logs for "Loading data file locally: XXX.XXX" or "Saving data file locally: XXX.XXX" messages.
+# If you don't know what componentId or fileName to use, check your logs for "Loading data file locally: XXX:XXX" or "Saving data file locally: XXX:XXX" messages.

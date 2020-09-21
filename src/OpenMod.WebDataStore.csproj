@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+	<PackageDescription>Sync OpenMod data files such as OpenMod roles and permissions via the web.</PackageDescription>
     <PackageId>OpenMod.WebDataStore</PackageId>
     <PackageLicenseExpression>EUPL-1.2</PackageLicenseExpression>
     <PackageTags>openmod openmod-plugin universal</PackageTags>
@@ -18,6 +19,9 @@
 
   <ItemGroup>
     <None Update="config.yaml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="webfiles\webdatastore.php">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

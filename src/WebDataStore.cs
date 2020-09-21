@@ -95,7 +95,7 @@ namespace OpenMod.WebDataStore
 
         private IConfiguration GetConfiguration(string key)
         {
-            var section = _configuration.GetSection("syncedFiles");
+            var section = _configuration.GetSection("syncedData");
             if (section.Exists())
             {
                 foreach (var child in section.GetChildren())
