@@ -20,7 +20,7 @@ jobs:
       with:
         dotnet-version: 3.1.101
     - name: Install dependencies
-      run: dotnet restore
+      run: dotnet restore src/
     - name: Update version
       run: "sed -i \"s#<Version>0.0.0</Version>#<Version>${{ github.event.inputs.version }}</Version>#\" src/OpenMod.WebDataStore.csproj"  
     - name: Build
