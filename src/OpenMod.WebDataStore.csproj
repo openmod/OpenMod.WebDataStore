@@ -14,13 +14,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="config.yaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="config.yaml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="OpenMod.Core" Version="2.2.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="config.yaml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Update="webfiles\webdatastore.php">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
